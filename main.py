@@ -19,11 +19,11 @@ def read_csv_to_dict(file_path):
 
 # Path to the CSV file
 file_path = "program_ratings1.csv"
-from google.colab import drive
-drive.mount('/content/drive')
-file_path = "/content/drive/MyDrive/Colab Notebooks/program_ratings1.csv"  # get file  from google drive
-df = pd.read_csv(file_path)
-display(df.head()) # for row head view
+#from google.colab import drive
+#drive.mount('/content/drive')
+#file_path = "/content/drive/MyDrive/Colab Notebooks/program_ratings1.csv"  # get file  from google drive
+#df = pd.read_csv(file_path)
+#display(df.head()) # for row head view
 
 
 
