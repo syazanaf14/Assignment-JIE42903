@@ -19,6 +19,8 @@ def read_csv_to_dict(file_path):
 
 # Path to the CSV file
 file_path = "program_ratings1.csv"
+
+# ------------------ Using Google Drive to check error ------------------------
 #from google.colab import drive
 #drive.mount('/content/drive')
 #file_path = "/content/drive/MyDrive/Colab Notebooks/program_ratings1.csv"  # get file  from google drive
@@ -112,8 +114,6 @@ def evaluate_fitness(schedule):
 
 # genetic algorithms with parameters
 
-
-
 def genetic_algorithm(initial_schedule, generations=GEN, population_size=POP, crossover_rate=CO_R, mutation_rate=MUT_R, elitism_size=EL_S):
 
     population = [initial_schedule]
@@ -167,10 +167,10 @@ print("Total Ratings:", fitness_function(final_schedule))
 
 # ----------------- STREAMLIT INTERFACE -----------------
 import streamlit as st
-
+#Main title
 st.title("📅 Scheduling using Genetic Algorithm")
-st.write("Adjust crossover and mutation rates, then view the generated schedule.")
-
+st.write("Before start, adjust crossover and mutation rates in the sidebar, then you can run and view the generated schedule.")
+# Sidebar header
 st.sidebar.header("🎛️ Genetic Algorithm Controls")
 st.sidebar.write("Kindly adjust the parameters below before running the schedule generator.")
 # Sidebar inputs
@@ -178,7 +178,7 @@ CO_R = st.sidebar.slider("Crossover Rate (CO_R)", 0.0, 0.95, 0.8, 0.1)
 MUT_R = st.sidebar.slider("Mutation Rate (MUT_R)", 0.01, 0.05, 0.02, 0.01)
 
 if st.button("Run Genetic Algorithm"):
-    # Run the lecturer’s algorithm with your chosen parameters
+    # Run the algorithm with chosen parameters
     genetic_schedule = genetic_algorithm(
         initial_schedule=best_schedule,
         generations=GEN,
@@ -195,6 +195,6 @@ if st.button("Run Genetic Algorithm"):
         "Time Slot": [f"{t:02d}:00" for t in all_time_slots],
         "Program": final_schedule[:len(all_time_slots)]
     })
-
+    st.success(f"The result:")
     st.success(f"✅ Total Ratings: {fitness_function(final_schedule):.2f}")
     st.dataframe(result_df)
