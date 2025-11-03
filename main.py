@@ -171,6 +171,8 @@ import streamlit as st
 st.title("📅 Scheduling using Genetic Algorithm")
 st.write("Adjust crossover and mutation rates, then view the generated schedule.")
 
+st.sidebar.header("🎛️ Genetic Algorithm Controls")
+st.sidebar.write("Kindly adjust the parameters below before running the schedule generator.")
 # Sidebar inputs
 CO_R = st.sidebar.slider("Crossover Rate (CO_R)", 0.0, 0.95, 0.8, 0.1)
 MUT_R = st.sidebar.slider("Mutation Rate (MUT_R)", 0.01, 0.05, 0.02, 0.01)
