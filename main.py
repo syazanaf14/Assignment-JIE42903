@@ -18,7 +18,7 @@ def read_csv_to_dict(file_path):
     return program_ratings
 
 # Path to the CSV file
-file_path = "program_ratings.csv"
+file_path = "program_ratings_ori.csv"
 
 # ------------------ Using Google Drive to check error ------------------------
 #from google.colab import drive
